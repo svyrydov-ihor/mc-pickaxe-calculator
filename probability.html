@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <title>MC pickaxe calculator</title>
+</head>
+<body>
+  <h2>Minecraft pickaxe calculator</h2>
+  <p>Calculates probability of not breaking pickaxe after mining specific amount of blocks</p>
+  <table width="100%" border="">
+    <tr>
+      <td>
+        <p>Enter pickaxe durability:</p>
+        <input type="number" min="1" step="1" name="durability_input" id="durability_input"/>
+
+        <p>Enter unbreaking enchantment level: from 1 to 3</p>
+        <input type="number" min="1" max="3" step="1" name="unbreaking_input" id="unbreaking_input"/>
+
+        <p>Enter how many blocks to mine:</p>
+        <input type="number" min="1" step="1" name="blocks_input" id="blocks_input"/>
+      </td>
+      <td style="vertical-align: top">
+        <p>Enter number of experiments for the simulation: (optional)</p>
+        <input type="number" min="1" step="1" name="experiments_input" id="experiments_input" placeholder="5000 by default"/>
+
+        <br><br>
+        <button py-click="calculate">Calculate</button>
+      </td>
+    </tr>
+    <tr align="center">
+      <td width="50%">
+        <div align="center">
+          <p>Precise calculations (using formulas)</p>
+          <p id="precise_loading" style="display: none">Loading...</p>
+          <p id="precise_text"></p>
+          <div id="precise_chart"></div>
+        </div>
+      </td>
+      <td width="50%">
+        <div align="center">
+          <p>Monte Carlo simulation results</p>
+          <p id="simulation_loading" style="display: none">Loading...</p>
+          <p id="simulation_text"></p>
+          <div id="simulation_chart"></div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <script type="py" src="./main.py" config="./pyscript.toml"></script>
+</body>
+</html>
