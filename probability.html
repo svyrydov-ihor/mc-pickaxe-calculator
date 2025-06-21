@@ -22,10 +22,10 @@
       </td>
       <td style="vertical-align: top">
         <p>Enter number of experiments for the simulation: (optional)</p>
-        <input type="number" min="1" step="1" name="experiments_input" id="experiments_input" placeholder="5000 by default"/>
+        <input type="number" min="1" step="1" name="num_of_experiments_input" id="num_of_experiments_input" placeholder="5000 by default"/>
 
         <br><br>
-        <button py-click="calculate">Calculate</button>
+        <button py-click="run_all_calculations">Calculate</button>
       </td>
     </tr>
     <tr align="center">
@@ -48,6 +48,6 @@
     </tr>
   </table>
 
-  <script type="py" src="./main.py" config="./pyscript.toml"></script>
+  <script type="py" src="./py/probability_controller.py" config="./pyscript.toml"></script>
 </body>
 </html>
