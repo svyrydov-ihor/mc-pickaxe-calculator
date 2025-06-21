@@ -1,5 +1,5 @@
 from pyscript import document
-import validators
+from py import validators
 
 def run_all_calculations(event):
     try:
