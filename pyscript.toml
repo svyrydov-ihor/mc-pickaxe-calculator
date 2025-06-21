@@ -1,0 +1,6 @@
+packages = ["numpy", "matplotlib", "scipy"]
+[files]
+"./py/__init__.py" = "./py/__init__.py"
+"./py/probability_controller.py" = "./py/probability_controller.py"
+"./py/probability/__init__.py" = "./py/probability/__init__.py"
+"./py/probability/precise.py" = "./py/probability/precise.py"
