@@ -26,6 +26,8 @@
 
         <br><br>
         <button py-click="run_all_calculations">Calculate</button>
+
+        <p style="color: red" id="error_message"></p>
       </td>
     </tr>
     <tr align="center">
@@ -48,6 +50,6 @@
     </tr>
   </table>
 
-  <script type="py" src="./py/probability_controller.py" config="./pyscript.toml"></script>
+  <script type="py" src="py/controllers/probability_controller.py" config="./pyscript.toml"></script>
 </body>
 </html>
