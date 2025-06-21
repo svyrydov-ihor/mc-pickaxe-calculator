@@ -1,6 +1,10 @@
 packages = ["numpy", "matplotlib", "scipy"]
 [files]
 "./py/__init__.py" = "./py/__init__.py"
-"./py/probability_controller.py" = "./py/probability_controller.py"
+"./py/validators.py" = "./py/validators.py"
 "./py/probability/__init__.py" = "./py/probability/__init__.py"
-"./py/probability/precise.py" = "./py/probability/precise.py"
+"./py/probability/controller.py" = "./py/probability/controller.py"
+"./py/probability/services.py" = "./py/probability/services.py"
+"./py/probability/calculations/__init__.py" = "./py/probability/calculations/__init__.py"
+"./py/probability/calculations/precise.py" = "./py/probability/calculations/precise.py"
+"./py/probability/calculations/simulation.py" = "./py/probability/calculations/simulation.py"
