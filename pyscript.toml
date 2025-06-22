@@ -6,3 +6,4 @@ packages = ["numpy", "matplotlib", "scipy"]
 "py/probability/controller.py"              = "./py/probability/controller.py"
 "py/probability/calculations/__init__.py" = "./py/probability/calculations/__init__.py"
 "py/probability/calculations/precise.py"  = "./py/probability/calculations/precise.py"
+"py/probability/calculations/simulation.py"  = "./py/probability/calculations/simulation.py"
