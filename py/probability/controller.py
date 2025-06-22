@@ -17,10 +17,7 @@ def run_all_calculations(event):
         document.querySelector("#error_message").innerText = ""
 
         # precise calculations
-        precise_loading_element = document.querySelector("#precise_loading")
-        precise_loading_element.style.display = "flex"
         prob, fig = calculate_precise_prob(durability, unbreaking_level, blocks)
-        precise_loading_element.style.display = "none"
 
         document.querySelector("#precise_upper_text").innerText =\
             f"Probability of not breaking pickaxe after mining {blocks} blocks is {prob * 100:.2f}%"
@@ -34,10 +31,7 @@ def run_all_calculations(event):
             "Shaded area: probability of not breaking pickaxe after mining")
 
         # simulation
-        simulation_loading_element = document.querySelector("#simulation_loading")
-        simulation_loading_element.style.display = "flex"
         prob, fig = simulate_prob(durability, unbreaking_level, blocks, num_of_experiments)
-        simulation_loading_element.style.display = "none"
 
         document.querySelector("#simulation_upper_text").innerText = \
             f"Probability of not breaking pickaxe after mining {blocks} blocks is {prob * 100:.2f}%"
@@ -53,4 +47,3 @@ def run_all_calculations(event):
     except Exception as e:
         error_message_element = document.querySelector("#error_message")
         error_message_element.innerText = str(e)
-        document.querySelector("#precise_loading").style.display = "none"
