@@ -18,7 +18,7 @@ def validate_unbreaking_level() -> int:
             raise ValueError
         return unbreaking_level
     except ValueError:
-        raise ValueError("Unbreaking level must be a positive integer from 0 and 3")
+        raise ValueError("Unbreaking level must be a positive integer from 1 and 3")
 
 def validate_blocks() -> int:
     blocks_input_element = document.querySelector("#blocks_input")
