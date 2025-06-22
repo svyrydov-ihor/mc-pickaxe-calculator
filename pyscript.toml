@@ -4,7 +4,6 @@ packages = ["numpy", "matplotlib", "scipy"]
 "./py/validators.py" = "./py/validators.py"
 "./py/probability/__init__.py" = "./py/probability/__init__.py"
 "./py/probability/controller.py" = "./py/probability/controller.py"
-"./py/probability/services.py" = "./py/probability/services.py"
 "./py/probability/calculations/__init__.py" = "./py/probability/calculations/__init__.py"
 "./py/probability/calculations/precise.py" = "./py/probability/calculations/precise.py"
 "./py/probability/calculations/simulation.py" = "./py/probability/calculations/simulation.py"
