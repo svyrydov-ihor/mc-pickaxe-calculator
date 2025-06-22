@@ -5,7 +5,21 @@ from scipy.stats import norm
 
 def calculate_precise_prob(durability: int, unbreaking_level: int, blocks: int) -> [np.float64, Figure]:
     """
-    Calculates probability of not breaking tool after mining specific amount of blocks
+    Approximates the probability of a tool not breaking after a number of mined blocks.
+
+    This function models the discrete binomial distribution of durability loss as a
+    continuous normal distribution. It calculates the mean and standard deviation
+    for durability loss based on Unbreaking enchantment level and the amount of blocks mined.
+
+    Args:
+        durability: The starting durability of the tool.
+        unbreaking_level: The level of the Unbreaking enchantment.
+        blocks: The number of blocks to be mined, representing the number of tool uses.
+
+    Returns:
+        list: A list containing:
+            - np.float64: The probability (from 0.0 to 1.0) that the tool will not break.
+            - Figure: A matplotlib Figure object visualizing the distribution of durability loss.
     """
     # distribution params
     dur_reduce_prob = 1 / (1 + unbreaking_level)
@@ -33,6 +47,7 @@ def calculate_precise_prob(durability: int, unbreaking_level: int, blocks: int) 
     peak = normal_curve(mu)
     ax.plot([mu, mu], [peak, 0], linestyle="--", color="r", marker="o")
     ax.annotate(f"{mu:.0f}", xy=(mu, peak), fontsize=12, color="r")
+
     fig.tight_layout()
 
     return [area, fig]
