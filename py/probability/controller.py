@@ -1,15 +1,36 @@
-from pyscript import document
+import logging
+import matplotlib
+logging.getLogger("matplotlib").setLevel(logging.CRITICAL)
+from pyscript import document, display
+
 from py import validators
+from py.probability.calculations.precise import calculate_precise_prob
 
 def run_all_calculations(event):
     try:
+        print("running all calculations")
         durability = validators.validate_durability()
         unbreaking_level = validators.validate_unbreaking_level()
         blocks = validators.validate_blocks()
         num_of_experiments = validators.validate_num_of_experiments()
-        error_message_element = document.querySelector("#error_message")
-        error_message_element.innerText = ""
+        document.querySelector("#error_message").innerText = ""
 
-    except ValueError as e:
+        precise_loading_element = document.querySelector("#precise_loading")
+        precise_loading_element.style.display = "flex"
+        prob, fig = calculate_precise_prob(durability, unbreaking_level, blocks)
+        precise_loading_element.style.display = "none"
+
+        document.querySelector("#precise_upper_text").innerText =\
+            f"Probability of not breaking pickaxe after mining {blocks} blocks is {prob * 100:.2f}%"
+
+        document.querySelector("#precise_chart").innerHTML = ""
+        display(fig, target="precise_chart")
+
+        document.querySelector("#precise_lower_text").innerText =\
+            ("X axis: how much durability will be lost\n" +
+            "Highest point of curve: the most expected durability amount to lose\n" +
+            "Shaded area: probability of not breaking pickaxe after mining")
+    except Exception as e:
         error_message_element = document.querySelector("#error_message")
-        error_message_element.innerText = e
+        error_message_element.innerText = str(e)
+        document.querySelector("#precise_loading").style.display = "none"

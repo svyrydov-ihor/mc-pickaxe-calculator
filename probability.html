@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width,initial-scale=1" />
       <title>MC pickaxe calculator</title>
+      <link rel="stylesheet" href="https://pyscript.net/releases/2025.5.1/core.css">
+      <script type="module" src="https://pyscript.net/releases/2025.5.1/core.js"></script>
 </head>
 <body>
   <h2>Minecraft pickaxe calculator</h2>
@@ -35,8 +37,9 @@
         <div align="center">
           <p>Precise calculations (using formulas)</p>
           <p id="precise_loading" style="display: none">Loading...</p>
-          <p id="precise_text"></p>
+          <p id="precise_upper_text"></p>
           <div id="precise_chart"></div>
+          <p id="precise_lower_text"></p>
         </div>
       </td>
       <td width="50%">
@@ -50,6 +53,6 @@
     </tr>
   </table>
 
-  <script type="py" src="py/probability/controller.py" config="./pyscript.toml"></script>
+  <script type="py" src="./py/probability/controller.py" config="./pyscript.toml"></script>
 </body>
 </html>
