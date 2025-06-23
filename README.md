@@ -7,6 +7,7 @@ A simple web-based tool to calculate the probabilities associated with Minecraft
 You can try out the calculator directly in your browser using the link below:
 * [Main Page](https://svyrydov-ihor.github.io/mc-pickaxe-calculator/)
 * [Probability Calculator](https://svyrydov-ihor.github.io/mc-pickaxe-calculator/probability.html): Calculate probability of not breaking pickaxe after mining specified amount of blocks.
+* [Confidence Calculator](https://svyrydov-ihor.github.io/mc-pickaxe-calculator/confidence.html): Calculate how many blocks can pickaxe mine with specified confidence level.
 
 ## How it works
 
