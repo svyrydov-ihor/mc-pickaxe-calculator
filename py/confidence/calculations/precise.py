@@ -3,7 +3,27 @@ import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from scipy.stats import norm
 
-def calculate_precise_prob(durability: int, unbreaking_level: int, confidence_level: float) -> [[np.float64, np.float64], Figure]:
+def calculate_precise_conf(durability: int, unbreaking_level: int, confidence_level: float) -> [[np.float64, np.float64], Figure]:
+    """
+    Approximates confidence interval for an amount of blocks that pickaxe can mine.
+
+    This function models the discrete geometric distribution of an amount of blocks
+    that pickaxe can mine as a continuous normal distribution. It calculates the mean
+    and standard deviation for an amount of blocks based on Unbreaking enchantment level
+    and durability amount. Then the specified confidence level is applied in order to return
+    confidence interval.
+
+    Args:
+        durability: The starting durability of the tool.
+        unbreaking_level: The level of the Unbreaking enchantment.
+        confidence_level: The confidence level for the confidence interval (from 0.0 to 1.0).
+
+    Returns:
+        list: A list containing:
+            - list[np.float64, np.float64]: The confidence interval which specifies the amount
+            of blocks that pickaxe can mine.
+            - Figure: A matplotlib Figure object visualizing the distribution of the amount of blocks.
+    """
     # distribution params
     dur_reduce_prob = 1 / (1 + unbreaking_level)
     mu = 1 / dur_reduce_prob * durability

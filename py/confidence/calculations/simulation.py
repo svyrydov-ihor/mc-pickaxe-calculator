@@ -4,7 +4,26 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 
-def simulate_prob(durability: int, unbreaking_level: int, confidence_level: float, num_of_experiments: int) -> [[np.float64, np.float64], Figure]:
+def simulate_confidence(durability: int, unbreaking_level: int, confidence_level: float, num_of_experiments: int) -> [[np.float64, np.float64], Figure]:
+    """
+    Approximates confidence interval for an amount of blocks that pickaxe can mine.
+
+    This function runs a Monte Carlo simulation in order to estimate the amount of blocks
+    that pickaxe can mine. It runs specified amount of simulations. More experiments results
+    in higher accuracy. The confidence interval is calculated based on the area of mined
+    blocks discrete distribution and the specified confidence level.
+
+    Args:
+        durability: The starting durability of the tool.
+        unbreaking_level: The level of the Unbreaking enchantment.
+        confidence_level: The confidence level for the confidence interval (from 0.0 to 1.0).
+
+    Returns:
+        list: A list containing:
+            - list[np.float64, np.float64]: The confidence interval which specifies the amount
+            of blocks that pickaxe can mine.
+            - Figure: A matplotlib Figure object visualizing the distribution of the amount of blocks.
+    """
     # setup
     dur_reduce_prob = 1 / (1 + unbreaking_level)
     outcomes: Dict[int, int] = {} # key: blocks mined, value: frequency
