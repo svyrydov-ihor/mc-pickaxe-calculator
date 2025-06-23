@@ -11,3 +11,4 @@ packages = ["numpy", "matplotlib", "scipy"]
 "py/confidence/controller.py"                = "./py/confidence/controller.py"
 "py/confidence/calculations/__init__.py"     = "./py/confidence/calculations/__init__.py"
 "py/confidence/calculations/precise.py"      = "./py/confidence/calculations/precise.py"
+"py/confidence/calculations/simulation.py"   = "./py/confidence/calculations/simulation.py"
