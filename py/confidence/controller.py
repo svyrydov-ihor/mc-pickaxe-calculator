@@ -5,8 +5,8 @@ logging.getLogger("matplotlib").setLevel(logging.CRITICAL)
 from pyscript import document, display
 
 from py import validators
-from py.confidence.calculations.precise import calculate_precise_prob
-from py.confidence.calculations.simulation import simulate_prob
+from py.confidence.calculations.precise import calculate_precise_conf
+from py.confidence.calculations.simulation import simulate_confidence
 
 def run_all_calculations(event):
     try:
@@ -18,7 +18,7 @@ def run_all_calculations(event):
         document.querySelector("#error_message").innerText = ""
 
         # precise calculations
-        interval, fig = calculate_precise_prob(durability, unbreaking_level, confidence)
+        interval, fig = calculate_precise_conf(durability, unbreaking_level, confidence)
 
         print_interval = [np.round(interval[0]), np.round(interval[1])]
         for i in range(len(print_interval)):
@@ -40,7 +40,7 @@ def run_all_calculations(event):
             "Left and right boundaries: the least expected amount of blocks to mine")
 
         # simulation
-        interval, fig = simulate_prob(durability, unbreaking_level, confidence, num_of_experiments)
+        interval, fig = simulate_confidence(durability, unbreaking_level, confidence, num_of_experiments)
 
         print_interval = [int(interval[0]), int(interval[1])]
         document.querySelector("#simulation_upper_text").innerText =(
