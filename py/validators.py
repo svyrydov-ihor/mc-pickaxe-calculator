@@ -37,7 +37,7 @@ def validate_confidence() -> float:
         return default_conf
     try:
         confidence = float(confidence_input_element.value) / 100
-        if confidence <= 0.001 or confidence > 1:
+        if confidence < 0.001 or confidence > 1:
             raise ValueError
         return confidence
     except ValueError:
