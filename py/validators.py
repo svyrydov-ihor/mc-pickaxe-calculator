@@ -30,6 +30,19 @@ def validate_blocks() -> int:
     except ValueError:
         raise ValueError("Blocks number must be a positive integer")
 
+def validate_confidence() -> float:
+    default_conf = 0.95
+    confidence_input_element = document.querySelector("#confidence_input")
+    if confidence_input_element.value in [None, ""]:
+        return default_conf
+    try:
+        confidence = float(confidence_input_element.value) / 100
+        if confidence <= 0.001 or confidence > 1:
+            raise ValueError
+        return confidence
+    except ValueError:
+        raise ValueError("Confidence level must be a fractional number from 0.1 to 100")
+
 def validate_num_of_experiments() -> int:
     default_num = 5000
     num_of_experiments_element = document.querySelector("#num_of_experiments_input")
